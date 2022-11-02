@@ -15,56 +15,56 @@ public class Main {
             System.out.println();
 
             System.out.println("Выберите операцию:");
-            int inputAction = scanner.nextInt();
+            String inputAction = scanner.next();
 
 
             switch (inputAction) {
-                case 1:
+                case ("1"):
                     System.out.println("Какую покупку хотите добавить?");
-                    Scanner scan1 = new Scanner(System.in);
-                    String inputItem = scan1.nextLine();
+
+                    String inputItem = scanner.next();
                     shopList.add(inputItem);
                     System.out.println("В списке покупок: " + shopList.size());
                     break;
 
-                case 2:
+                case ("2"):
                     System.out.println("Итого в списке покупок: ");
-                    for (String s : shopList) {
-                        System.out.println((shopList.indexOf(s)) + 1 + ". " + s);
+                    for (int i = 0; i < shopList.size(); i++) {
+                        System.out.println((i + 1) + ". " + shopList.get(i));
                     }
                     break;
 
-                case 3:
+                case ("3"):
                     System.out.println("Список покупок: ");
-                    for (String s : shopList) {
-                        System.out.println((shopList.indexOf(s)) + 1 + ". " + s);
+                    for (int i = 0; i < shopList.size(); i++) {
+                        System.out.println((i + 1) + ". " + shopList.get(i));
                     }
                     System.out.println("Какую хотите удалить? Введите номер или название:");
-                    Scanner scan3 = new Scanner(System.in);
-                    String removeItem = scan3.nextLine();
+
+                    String removeItem = scanner.next();
 
                     char isString = removeItem.charAt(0);
                     if (Character.isLetter(isString)) {
                         shopList.remove(removeItem);
                         System.out.println("Покупка " + removeItem + " удалена, список покупок:");
-                        for (String s : shopList) {
-                            System.out.println((shopList.indexOf(s)) + 1 + ". " + s);
+                        for (int i = 0; i < shopList.size(); i++) {
+                            System.out.println((i + 1) + ". " + shopList.get(i));
                         }
                     } else {
                         int removeItemInt = Integer.parseInt(removeItem);
                         shopList.remove(removeItemInt - 1);
                         System.out.println("Покупка " + removeItemInt + " удалена, список покупок:");
-                        for (String s : shopList) {
-                            System.out.println((shopList.indexOf(s)) + 1 + ". " + s);
+                        for (int i = 0; i < shopList.size(); i++) {
+                            System.out.println((i + 1) + ". " + shopList.get(i));
                         }
                     }
                     break;
 
-                case 4:
+                case ("4"):
                     System.out.println();
                     System.out.println("Введите текст для поиска");
-                    Scanner scan4 = new Scanner(System.in);
-                    String input4 = scan4.nextLine();
+
+                    String input4 = scanner.next();
                     System.out.println("Найдено: ");
 
                     for (int i = 0; i < shopList.size(); i++) {
